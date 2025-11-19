@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOTTENHAM HOTSPUR - COYS | Trang Fanpage Đặc Biệt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* 🎨 Thiết Lập CSS Cốt Lõi */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Nền trắng xanh nhẹ */
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ⚪🔵 Màu Sắc và Tone COYS */
+        :root {
+            --tottenham-white: #ffffff;
+            --tottenham-blue: #132257; /* Xanh Navy Đậm - Màu Chính (The Lilywhites) */
+            --tottenham-gold-accent: #fcd701; /* Vàng sáng - Màu Điểm Nhấn */
+            --tottenham-pitch: #4CAF50; /* Xanh Sân Cỏ */
+            --tottenham-pitch-dark: #388E3C; 
+        }
+
+        /* 🖼️ Header - The Spurs Banner */
+        .spurs-banner {
+            background-color: var(--tottenham-blue);
+            color: var(--tottenham-white);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .coys-logo img {
+            width: 90px;
+            height: 90px;
+            margin-right: 25px;
+            border-radius: 50%;
+            border: 5px solid var(--tottenham-gold-accent);
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(252, 215, 1, 0.8);
+        }
+
+        .spurs-banner h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3em;
+            letter-spacing: 3px;
+            font-weight: 900;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+        }
+        .spurs-banner p {
+            font-size: 1.2em;
+            color: var(--tottenham-gold-accent);
+            margin-top: 5px;
+            font-weight: 700;
+        }
+
+        /* 🧭 Navigation - The North Stand Nav */
+        .north-stand-nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--tottenham-white);
+            border-bottom: 7px solid var(--tottenham-gold-accent);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .north-stand-nav a {
+            color: var(--tottenham-blue);
+            text-decoration: none;
+            padding: 10px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 8px;
+            margin: 0 7px;
+            border: 1px solid var(--tottenham-blue);
+        }
+
+        .north-stand-nav a:hover {
+            background-color: var(--tottenham-blue);
+            color: var(--tottenham-gold-accent);
+            transform: scale(1.05);
+            border-color: var(--tottenham-gold-accent);
+        }
+
+        /* 🧱 Main Content Layout */
+        .stadium-layout {
+            width: 90%;
+            max-width: 1400px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        /* 📦 Spurs Box Style */
+        .spurs-box {
+            background-color: var(--tottenham-white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .spurs-box h2 {
+            color: var(--tottenham-blue);
+            border-bottom: 3px solid var(--tottenham-gold-accent);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 2.2em;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        
+        /* --- Legends Wall --- */
+        .legends-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
+            text-align: center;
+        }
+
+        .legend-plaque {
+            background: linear-gradient(145deg, var(--tottenham-light-grey), var(--tottenham-white));
+            padding: 20px 10px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            border: 2px solid var(--tottenham-blue);
+        }
+
+        .legend-plaque:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 25px rgba(19, 34, 87, 0.6);
+            background: var(--tottenham-blue);
+            color: var(--tottenham-white);
+        }
+
+        .legend-plaque img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--tottenham-gold-accent);
+            margin-bottom: 10px;
+        }
+        .legend-plaque:hover strong, .legend-plaque:hover small {
+            color: var(--tottenham-gold-accent);
+        }
+
+        /* --- Sân Cỏ Đối Kháng (The Clash Pitch) --- */
+        .clash-pitch-container {
+            background: var(--tottenham-pitch);
+            background-image: linear-gradient(90deg, var(--tottenham-pitch) 50%, var(--tottenham-pitch-dark) 50%); /* Sân có 2 màu nhẹ */
+            border: 15px solid var(--tottenham-white);
+            border-radius: 15px;
+            position: relative;
+            height: 700px; /* Cao hơn để chứa 2 đội */
+            margin-top: 25px;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+        }
+
+        /* Vạch giữa sân */
+        .clash-pitch-container:before {
+            content: '';
+            position: absolute;
+            top: 5%; bottom: 5%; left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            background-color: var(--tottenham-white);
+            opacity: 0.9;
+        }
+        /* Vòng tròn giữa sân */
+        .clash-pitch-container:after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--tottenham-white);
+            opacity: 0.9;
+        }
+        
+        /* Player Styling */
+        .player-position {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .player-position:hover .player-circle {
+            box-shadow: 0 0 25px var(--tottenham-gold-accent), 0 0 10px var(--tottenham-white);
+            transform: scale(1.15);
+        }
+
+        .player-circle {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        /* Phân biệt màu áo 2 đội */
+        .squad-golden .player-circle { border: 4px solid var(--tottenham-gold-accent); background-color: var(--tottenham-white); }
+        .squad-current .player-circle { border: 4px solid var(--tottenham-blue); background-color: var(--tottenham-light-grey); }
+
+        .player-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+        .player-info {
+            padding: 5px 12px;
+            border-radius: 18px;
+            margin-top: 5px;
+            font-size: 0.8em;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .squad-golden .player-info { background-color: var(--tottenham-gold-accent); color: var(--tottenham-blue); }
+        .squad-current .player-info { background-color: var(--tottenham-blue); color: var(--tottenham-gold-accent); }
+        
+        /* Tooltip */
+        .player-position .tooltip {
+            visibility: hidden;
+            background-color: rgba(19, 34, 87, 0.98);
+            color: var(--tottenham-white);
+            text-align: left;
+            padding: 15px;
+            border-radius: 8px;
+            position: absolute;
+            z-index: 100;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border: 2px solid var(--tottenham-gold-accent);
+        }
+        .player-position:hover .tooltip { visibility: visible; opacity: 1; }
+        .tooltip strong { color: var(--tottenham-gold-accent); display: block; margin-bottom: 5px; font-size: 1.2em; }
+        
+        /* --- Mục Bán Hàng (Spurs Shop) --- */
+        .spurs-shop-grid {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .product-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            background-color: var(--tottenham-white);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .buy-coys-btn {
+            background: linear-gradient(to right, var(--tottenham-gold-accent), #ffd94f);
+            color: var(--tottenham-blue);
+            border: none;
+            padding: 14px 30px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 35px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+            width: 95%;
+        }
+
+        .buy-coys-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- Lượng Fan (The Global Army) --- */
+        .global-army {
+            text-align: center;
+            padding: 40px 20px;
+            border: 4px double var(--tottenham-blue);
+            border-radius: 15px;
+            background-color: #e6f7ff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .global-army .number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4em;
+            color: var(--tottenham-blue);
+            font-weight: 900;
+            display: block;
+            margin-top: 10px;
+            text-shadow: 1px 1px 2px #ccc;
+        }
+        .global-army .label {
+            font-size: 1.2em;
+            color: var(--tottenham-blue);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="spurs-banner">
+        <div class="coys-logo">
+            <img src="https://via.placeholder.com/90?text=Logo+TOT" alt="Logo Tottenham Hotspur">
+        </div>
+        <div>
+            <h1>TOTTENHAM HOTSPUR F.C.</h1>
+            <p>CHÚNG TÔI LÀ COYS (Come On You Spurs)</p>
+        </div>
+    </div>
+
+    <div class="north-stand-nav">
+        <a href="#history">Di Sản & Danh Hiệu 🏆</a>
+        <a href="#legends">Bức Tường Huyền Thoại 🌟</a>
+        <a href="#clash">Sân Cỏ Đối Kháng ⚔️</a>
+        <a href="#shop">Spurs Shop 🛒</a>
+    </div>
+
+    <div class="stadium-layout">
+        <div class="main-content">
+
+            <div id="history" class="spurs-box history-legacy">
+                <h2>📜 Di Sản & Lịch Sử Hình Thành</h2>
+                <img style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;" src="https://via.placeholder.com/1000x200?text=Sân+vận+động+Tottenham+Hotspur" alt="Sân vận động Tottenham Hotspur">
+                <p style="text-align: justify;">
+                    Tottenham Hotspur F.C. được thành lập vào năm **1882** bởi một nhóm học sinh. Với triết lý **"To Dare Is To Do"** (Dám làm là làm được), Spurs đã làm nên lịch sử khi là CLB Anh đầu tiên giành cú đúp danh hiệu (League và FA Cup) vào mùa giải 1960-61.
+                </p>
+                <h3 style="color: var(--tottenham-blue); margin-top: 20px; border-bottom: 2px dashed #ccc; padding-bottom: 5px;">🏆 Các Danh Hiệu Nổi Bật</h3>
+                <ul style="list-style: none; padding-left: 0; font-weight: 700;">
+                    <li><span style="color: var(--tottenham-gold-accent);">👑</span> Vô địch Anh (League Championship): 2 lần</li>
+                    <li><span style="color: var(--tottenham-gold-accent);">🏆</span> FA Cup: 8 lần</li>
+                    <li><span style="color: var(--tottenham-gold-accent);">🌍</span> UEFA Cup Winners' Cup: 1 lần (1963)</li>
+                    <li><span style="color: var(--tottenham-gold-accent);">✨</span> UEFA Cup/Europa League: 2 lần</li>
+                </ul>
+            </div>
+
+            <div id="legends" class="spurs-box">
+                <h2>🌟 Bức Tường Huyền Thoại</h2>
+                <div class="legends-wall">
+                    <div class="legend-plaque">
+                        <img src="https://via.placeholder.com/120?text=Son" alt="Son Heung-min">
+                        <p><strong>SON HEUNG-MIN</strong></p>
+                        <small>Tiền đạo & Đội trưởng vĩ đại</small>
+                    </div>
+                    <div class="legend-plaque">
+                        <img src="https://via.placeholder.com/120?text=Kane" alt="Harry Kane">
+                        <p><strong>HARRY KANE</strong></p>
+                        <small>Kỷ lục gia ghi bàn CLB</small>
+                    </div>
+                    <div class="legend-plaque">
+                        <img src="https://via.placeholder.com/120?text=Greaves" alt="Jimmy Greaves">
+                        <p><strong>JIMMY GREAVES</strong></p>
+                        <small>Vua phá lưới mọi thời đại</small>
+                    </div>
+                    <div class="legend-plaque">
+                        <img src="https://via.placeholder.com/120?text=Hoddle" alt="Glenn Hoddle">
+                        <p><strong>GLENN HODDLE</strong></p>
+                        <small>Nhạc trưởng thiên tài</small>
+                    </div>
+                    <div class="legend-plaque">
+                        <img src="https://via.placeholder.com/120?text=Blanchflower" alt="Danny Blanchflower">
+                        <p><strong>D. BLANCHFLOWER</strong></p>
+                        <small>Đội trưởng cú đúp 1961</small>
+                    </div>
+                    <div class="legend-plaque">
+                        <img src="https://via.placeholder.com/120?text=Sherwood" alt="Teddy Sheringham">
+                        <p><strong>TEDDY SHERINGHAM</strong></p>
+                        <small>Tiền đạo EPL đỉnh cao</small>
+                    </div>
+                </div>
+            </div>
+
+            <div id="clash" class="spurs-box">
+                <h2>⚔️ Sân Cỏ Đối Kháng: Hoàng Kim vs Hiện Tại</h2>
+                
+                <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 20px; background-color: var(--tottenham-light-grey); padding: 15px; border-radius: 10px;">
+                    <h3 style="margin: 0; font-size: 1.5em; color: var(--tottenham-blue);">🤵 HLV Vĩ Đại Nhất:</h3>
+                    <img src="https://via.placeholder.com/100?text=Pochettino" alt="Mauricio Pochettino" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--tottenham-gold-accent); object-fit: cover;">
+                    <strong style="font-size: 1.4em; color: var(--tottenham-blue);">Mauricio Pochettino</strong>
+                </div>
+
+                <div class="clash-pitch-container">
+                    
+                    <div class="squad-golden" style="position: absolute; width: 48%; height: 100%; left: 0;">
+                        <div class="player-position" style="top: 10%; left: 80%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Kane" alt="Kane"></div>
+                            <div class="player-info">H. Kane (10)</div>
+                            <div class="tooltip"><strong>Harry Kane</strong><p>Vị trí: Tiền đạo Cắm | Kỷ lục gia.</p></div>
+                        </div>
+
+                        <div class="player-position" style="top: 30%; left: 30%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Son" alt="Son Heung-min"></div>
+                            <div class="player-info">Son H.M. (7)</div>
+                            <div class="tooltip"><strong>Son Heung-min</strong><p>Vị trí: Cánh Trái | Vua phá lưới.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 35%; left: 60%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Eriksen" alt="Eriksen"></div>
+                            <div class="player-info">C. Eriksen (23)</div>
+                            <div class="tooltip"><strong>C. Eriksen</strong><p>Vị trí: Hộ công | Chuyên gia kiến tạo.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 30%; left: 90%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Dele" alt="Dele Alli"></div>
+                            <div class="player-info">D. Alli (20)</div>
+                            <div class="tooltip"><strong>Dele Alli</strong><p>Vị trí: Cánh Phải | Đột biến.</p></div>
+                        </div>
+
+                        <div class="player-position" style="top: 60%; left: 40%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Dembélé" alt="Dembélé"></div>
+                            <div class="player-info">M. Dembélé (19)</div>
+                            <div class="tooltip"><strong>M. Dembélé</strong><p>Vị trí: Tiền vệ Trung tâm | Giữ bóng siêu hạng.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 65%; left: 70%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Wanyama" alt="Wanyama"></div>
+                            <div class="player-info">V. Wanyama (12)</div>
+                            <div class="tooltip"><strong>V. Wanyama</strong><p>Vị trí: Tiền vệ Phòng ngự | Máy quét.</p></div>
+                        </div>
+
+                        <div class="player-position" style="top: 85%; left: 20%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Rose" alt="Danny Rose"></div>
+                            <div class="player-info">D. Rose (3)</div>
+                            <div class="tooltip"><strong>Danny Rose</strong><p>Vị trí: Hậu vệ Cánh Trái | Lên công tốt.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 90%; left: 50%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Vertonghen" alt="Vertonghen"></div>
+                            <div class="player-info">J. Vertonghen (5)</div>
+                            <div class="tooltip"><strong>J. Vertonghen</strong><p>Vị trí: Trung vệ | Lãnh đạo.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 90%; left: 80%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Toby" alt="Alderweireld"></div>
+                            <div class="player-info">T. Alderweireld (4)</div>
+                            <div class="tooltip"><strong>Toby Alderweireld</strong><p>Vị trí: Trung vệ | Phòng ngự thép.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 85%; left: 95%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Walker" alt="Kyle Walker"></div>
+                            <div class="player-info">K. Walker (2)</div>
+                            <div class="tooltip"><strong>Kyle Walker</strong><p>Vị trí: Hậu vệ Cánh Phải | Tốc độ.</p></div>
+                        </div>
+
+                        <div class="player-position" style="top: 95%; left: 50%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Lloris" alt="Lloris"></div>
+                            <div class="player-info">H. Lloris (1)</div>
+                            <div class="tooltip"><strong>Hugo Lloris</strong><p>Vị trí: Thủ môn | Đội trưởng.</p></div>
+                        </div>
+                    </div>
+                    
+                    <div class="squad-current" style="position: absolute; width: 48%; height: 100%; right: 0;">
+                        <div class="player-position" style="top: 10%; left: 20%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Son" alt="Son Heung-min"></div>
+                            <div class="player-info">Son H.M. (7)</div>
+                            <div class="tooltip"><strong>Son Heung-min</strong><p>Vị trí: Tiền đạo Cắm | Tốc độ & dứt điểm.</p></div>
+                        </div>
+
+                        <div class="player-position" style="top: 25%; left: 5%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Werner" alt="Timo Werner"></div>
+                            <div class="player-info">T. Werner (16)</div>
+                            <div class="tooltip"><strong>Timo Werner</strong><p>Vị trí: Cánh Trái | Tốc độ cao.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 25%; left: 80%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Kulu" alt="Kulusevski"></div>
+                            <div class="player-info">D. Kulusevski (21)</div>
+                            <div class="tooltip"><strong>D. Kulusevski</strong><p>Vị trí: Cánh Phải | Sáng tạo & thể lực.</p></div>
+                        </div>
+
+                        <div class="player-position" style="top: 55%; left: 30%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Maddison" alt="Maddison"></div>
+                            <div class="player-info">J. Maddison (10)</div>
+                            <div class="tooltip"><strong>J. Maddison</strong><p>Vị trí: Tiền vệ Tấn công | Nhạc trưởng.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 60%; left: 50%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Bissouma" alt="Bissouma"></div>
+                            <div class="player-info">Y. Bissouma (8)</div>
+                            <div class="tooltip"><strong>Y. Bissouma</strong><p>Vị trí: Tiền vệ Trung tâm | Giữ nhịp.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 55%; left: 70%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Sarr" alt="Pape Sarr"></div>
+                            <div class="player-info">Pape Sarr (29)</div>
+                            <div class="tooltip"><strong>Pape Matar Sarr</strong><p>Vị trí: Tiền vệ Box-to-Box | Năng lượng.</p></div>
+                        </div>
+
+                        <div class="player-position" style="top: 85%; left: 5%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Udogie" alt="Udogie"></div>
+                            <div class="player-info">D. Udogie (38)</div>
+                            <div class="tooltip"><strong>Destiny Udogie</strong><p>Vị trí: Hậu vệ Cánh Trái | Hiện đại.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 90%; left: 30%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=V.D.Ven" alt="Van de Ven"></div>
+                            <div class="player-info">M. V.D.Ven (37)</div>
+                            <div class="tooltip"><strong>Micky van de Ven</strong><p>Vị trí: Trung vệ | Tốc độ.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 90%; left: 60%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Romero" alt="Romero"></div>
+                            <div class="player-info">C. Romero (17)</div>
+                            <div class="tooltip"><strong>C. Romero</strong><p>Vị trí: Trung vệ | Quyết liệt.</p></div>
+                        </div>
+                        <div class="player-position" style="top: 85%; left: 95%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Porro" alt="Pedro Porro"></div>
+                            <div class="player-info">P. Porro (23)</div>
+                            <div class="tooltip"><strong>Pedro Porro</strong><p>Vị trí: Hậu vệ Cánh Phải | Tấn công.</p></div>
+                        </div>
+
+                        <div class="player-position" style="top: 95%; left: 50%;">
+                            <div class="player-circle"><img src="https://via.placeholder.com/75?text=Vicario" alt="Vicario"></div>
+                            <div class="player-info">G. Vicario (13)</div>
+                            <div class="tooltip"><strong>G. Vicario</strong><p>Vị trí: Thủ môn | Phản xạ.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+
+            <div id="shop" class="spurs-box">
+                <h2>🛍️ Spurs Shop: To Dare To Buy</h2>
+                <div class="spurs-shop-grid">
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/300x200?text=Áo+Đấu+Sân+Nhà+24-25" alt="Áo Đấu Sân Nhà">
+                        <h4>Áo Đấu Sân Nhà Mới Nhất</h4>
+                        <p style="font-weight: 700; color: var(--tottenham-blue);">3.200.000 VNĐ</p>
+                        <button class="buy-coys-btn">MUA NGAY</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/300x200?text=Khăn+TOT" alt="Khăn Choàng Cổ">
+                        <h4>Khăn Choàng Cổ COYS</h4>
+                        <p style="font-weight: 700; color: var(--tottenham-blue);">450.000 VNĐ</p>
+                        <button class="buy-coys-btn">MUA NGAY</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/300x200?text=Mũ+TOT" alt="Mũ CLB">
+                        <h4>Mũ Lưỡi Trai Logo Gà Trống</h4>
+                        <p style="font-weight: 700; color: var(--tottenham-blue);">600.000 VNĐ</p>
+                        <button class="buy-coys-btn">MUA NGAY</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spurs-box">
+                <h2>📈 The Global Army</h2>
+                <div class="global-army">
+                    <p class="label">Tổng Lượng Người Hâm Mộ Ước Tính</p>
+                    <span class="number">~450M</span>
+                    <p class="label" style="margin-top: 20px;">Followers Mạng Xã Hội</p>
+                    <span class="number" style="font-size: 3em;">28M+</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
